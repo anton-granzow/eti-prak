@@ -1,0 +1,5 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) release/23.10   2) slurm/slurm-paths
+Module GCC/12.2.0 and 3 dependencies loaded.
