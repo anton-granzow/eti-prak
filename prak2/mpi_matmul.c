@@ -1,174 +1,136 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <getopt.h>
 #include <mpi.h>
-#include <math.h>
+#include <getopt.h>
 
-#define BLOCK_SIZE 32
-#define SIZE 512
-#define PROCESSES 1
-
-const float max_float = 100.0;
 
 int main(int argc, char *argv[]){
-	
-    /* 2D array matrix allocation
-	float **matrix1 = (float **)malloc(SIZE*sizeof(float *));
-	float **matrix2 = (float **)malloc(SIZE*sizeof(float *));
-	float **matrixresult = (float **)malloc(SIZE*sizeof(float *));
-	for(int i = 0; i<SIZE; i++){
-		matrix1[i] = (float *)malloc(SIZE*sizeof(float));
-		matrix2[i] = (float *)malloc(SIZE*sizeof(float));
-		matrixresult[i] = (float *)malloc(SIZE*sizeof(float));
+    int SIZE = 4;
+    int root = 0;
+    float max_float = 1000.0;
 
-	    for(int j = 0; j<SIZE; j++){
-		matrix1[i][j] = (float)rand()/(float)(RAND_MAX/max_float);
-		matrix2[i][j] = (float)rand()/(float)(RAND_MAX/max_float);
-		matrixresult[i][j] = 0;
+    int loops = 1;
 
+	int opt;
 
-	    }
+	while((opt = getopt(argc, argv, "s:l:")) != EOF){
+		switch(opt){
+		case 's':
+			SIZE = atoi(optarg);
+			break;
+		case 'l':
+			loops = atoi(optarg);
+			break;
+		default:
+			fprintf(stderr, "Usage: %s [-s] SIZE [-l] loop-iterations\n",
+                           argv[0]);
+			exit(EXIT_FAILURE);
+		}
 	}
-    */
 
-   // 1D array Matrix allocation
-    float *A = (float*) malloc(sizeof(float) * SIZE * SIZE);
-    float *B = (float*) malloc(sizeof(float) * SIZE * SIZE);
-    float *C = (float*) malloc(sizeof(float) * SIZE * SIZE);
+    MPI_Init(NULL, NULL);
 
-    for (int i = 0; i < SIZE*SIZE; i++) {
-        A[i] = (float)rand()/(float)(RAND_MAX/max_float);
-        B[i] = (float)rand()/(float)(RAND_MAX/max_float);
-        C[i] = (float)rand()/(float)(RAND_MAX/max_float);
-    }
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-	// Initializing elements of matrix mult to 0.
-	for(int i = 0; i < SIZE*SIZE; ++i) 
-        C[i] = 0;
-	
-	// do matrix mul couple of times
-	int counter = 0;
-    double timer = 0;
-
-    // init MPI variables
-    int rank_id;
-    int total_ranks;
-    int slave_proc, rows_per_slave, last_slave;
-
-    //clock_t start = clock() ;
-    // Init MPI environment
-    MPI_Init(&argc,&argv);
-
-    // get id of current rank
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank_id);
-
-    // get number of total ranks
-    MPI_Comm_size(MPI_COMM_WORLD, &total_ranks);
-
-    slave_proc = total_ranks - 1;
-
-    // associate a number of rows of A for each slave process
-    rows_per_slave = floor(SIZE / slave_proc-1);
-
-    // get amount of rows for last slave process (take the last slave out: -1)
-    last_slave = SIZE - (rows_per_slave * (slave_proc-1));
-
-    // allocate ressources for all processes except the last one
-    //if ( rank_id < slave_proc ) {
-        float *rows_i = (float*) malloc(sizeof(float) * SIZE * rows_per_slave);
-        float *B_i = (float*) malloc(sizeof(float) * SIZE * SIZE);
-        float *C_tmp = (float*) malloc(sizeof(float) * SIZE * rows_per_slave);
-    //}
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     
-    // allocate ressources for the last process
-    if ( rank_id == slave_proc ) {
-        float *rows_i = (float*) malloc(sizeof(float) * SIZE * last_slave);
-        //float *B_i = (float*) malloc(sizeof(float) * SIZE * SIZE);
-        float *C_tmp = (float*) malloc(sizeof(float) * SIZE * last_slave);
+    int min_rows = (int)SIZE/world_size;
+    int min_count = min_rows*SIZE;
+    int *sendcounts = (int*)malloc(world_size*sizeof(int));
+    int *displs = (int*)malloc(world_size*sizeof(int));
+    int *sendrows = (int*)malloc(world_size*sizeof(int));
+    
+    // determine rows of each process
+    for(int i = 0; i<world_size; i++){
+        sendrows[i] = min_rows;
+    }
+    int totalrows = min_rows * world_size;
+    int count = 0;
+    while(totalrows < SIZE){
+        count = count % world_size;
+        sendrows[count]++;
+        count++;
+        totalrows++;
     }
 
-    // send data from root process (COLLECTIVE COMMUNICATION: only MPI_SEND can be performed once, BCast and Scatter have to be called by all processes)
-    if (rank_id == 0) {
-
-        // experimental: root needs send buffer for MPI_Gather() 
-        float *C_tmp = (float*) malloc(sizeof(float) * SIZE * last_slave);
-                
-        // send last slave the remaining rows
-        int last_slave_offset = rows_per_slave * SIZE * (slave_proc - 1);
-        MPI_Send( &A[last_slave_offset] , last_slave * SIZE , MPI_FLOAT , slave_proc , 1 , MPI_COMM_WORLD); // TODO: whats the use of the tag? (here: 1)
-
-        // gather partial results from all processes except the last one
-        MPI_Gather( C_tmp , rows_per_slave * SIZE , MPI_FLOAT , C , rows_per_slave * SIZE , MPI_FLOAT , 0 , MPI_COMM_WORLD);
-
-        // receive result from last process
-        MPI_Status status;
-        MPI_Recv( &C[ (slave_proc-1) * SIZE * rows_per_slave ] , last_slave * SIZE , MPI_FLOAT , slave_proc , 2 , MPI_COMM_WORLD , &status);
-
+    // Process Sendcounts and dipls for Scatterv
+    sendcounts[0] = sendrows[0]*SIZE;
+    displs[0] = 0;
+    for(int i = 1; i<world_size; i++){
+        sendcounts[i] = sendrows[i]*SIZE;
+        displs[i] = displs[i-1] + sendrows[i-1]*SIZE;
     }
 
-    // scatter rows of A to the processes
-    MPI_Scatter( A , rows_per_slave * SIZE , MPI_FLOAT , rows_i ,
-                    rows_per_slave * SIZE , MPI_FLOAT , 0 , MPI_COMM_WORLD);
 
-    // broadcast the second input matrix
-    MPI_Bcast( B , SIZE * SIZE , MPI_FLOAT , 0 , MPI_COMM_WORLD);   
+    // init Matrix Sizes
+    float *A;
+    float *B = (float*) malloc(SIZE*SIZE*sizeof(float));
+    float *C_sub = (float*) malloc(SIZE*sendrows[rank]*sizeof(float));
+    float *C = NULL;
+    float *C_check = (float*) malloc(SIZE*SIZE*sizeof(float));
 
-    // calculate output matrix for all processes except the last one
-    if ((rank_id != 0) && (rank_id < slave_proc)) {
-        
-        int offset = rank_id * rows_per_slave * SIZE;                   // the offset that we have to jump to for every process
-        for (int i = 0; i < rows_per_slave; i++) {                      // rows of current process
-            for (int j = 0; j < SIZE; j++) {                            // cols of B
+    if(rank == root){
 
-                float sum = 0;
-                for (int k = 0; k < SIZE; k++) {        
-                    sum += rows_i[i * SIZE + k] * B_i[k * SIZE + j];    // sum up mult. results
+        // init Matrices with random values in root process
+        A = (float*) malloc(SIZE*SIZE*sizeof(float));
+        C = (float*) malloc(SIZE*SIZE*sizeof(float));
+        for(int i = 0; i<SIZE*SIZE; i++){
+            A[i] = (float)rand()/(float)(RAND_MAX/max_float);
+            B[i] = (float)rand()/(float)(RAND_MAX/max_float);
+        }
+
+        // Check Matrix
+        for(int i = 0; i<SIZE; i++){
+            int row = i*SIZE;
+            for(int j = 0; j<SIZE; j++){
+                int index = row + j;
+                C_check[index] = A[row] * B[j];
+                for(int k = 1; k<SIZE; k++){
+                    C_check[index] += A[row+k] * B[j+k*SIZE];
                 }
-
-                C_tmp[(i*SIZE) + j] = sum;                               // put results in correct place of C
-
             }
         }
 
-        // gather batches to root process
-        MPI_Gather( C_tmp , rows_per_slave * SIZE , MPI_FLOAT , C , rows_per_slave * SIZE ,
-                     MPI_FLOAT , 0 , MPI_COMM_WORLD);
 
     }
+    else{
+        //allocate A for slave processes
+        A = (float*) malloc(sendcounts[rank]*sizeof(float));
+    }
 
-    // finalize matrix C with last process
-    if ( rank_id == slave_proc ) {
 
-        // receive rows from last process
-        MPI_Status status;
-        MPI_Recv( rows_i , last_slave * SIZE , MPI_FLOAT , 0 , 1 , MPI_COMM_WORLD , &status);
+    MPI_Scatterv(A, sendcounts, displs, MPI_FLOAT, A, sendcounts[rank], MPI_FLOAT, root, MPI_COMM_WORLD);
 
-        int offset = (rank_id-1) * rows_per_slave * SIZE;               // the offset that we have to jump to for last process (rank_id)
-        for (int i = 0; i < last_slave; i++) {                          // rows of current process
-            for (int j = 0; j < SIZE; j++) {                            // cols of B
+    MPI_Bcast(B, SIZE*SIZE, MPI_FLOAT, root, MPI_COMM_WORLD);
 
-                float sum = 0;
-                for (int k = 0; k < SIZE; k++) {        
-                    sum += rows_i[i * SIZE + k] * B_i[k * SIZE + j];    // sum up mult. results
-                }
-
-                C_tmp[(i*SIZE) + j] = sum;                              // put results in correct place of C
-
+    // Matrix Mul for each subprocess
+    for(int i = 0; i<sendrows[rank]; i++){
+        int row = i*SIZE;
+        for(int j=0; j<SIZE; j++){
+            int index = row + j;
+            C_sub[index] = A[row] * B[j];
+            for(int k = 1; k<SIZE; k++){
+                C_sub[index] += A[row + k] * B[j + k*SIZE];
             }
         }
-
-        // send last batch to root process
-        MPI_Send( C_tmp , last_slave * SIZE , MPI_FLOAT , 0 , 2 , MPI_COMM_WORLD);
-
     }
 
+    MPI_Gatherv(C_sub, sendcounts[rank], MPI_FLOAT, C, sendcounts, displs, MPI_FLOAT, root, MPI_COMM_WORLD);
 
+    if(rank == root){
+        int mistakes = 0;
+        for(int i = 0; i<SIZE; i++){
+            int index = i*SIZE;
+            for(int j = 0; j<SIZE; j++){
+                if(C[index+j] != C_check[index+j]) mistakes++;
+                printf("%f, ", C[index+j]);
+            }
+            printf("\n");
+        }
+        printf("mistakes: %d\n", mistakes);
+    }
 
     MPI_Finalize();
-    //clock_t end = clock() ;
-    //timer = (end-start)/(double)CLOCKS_PER_SEC ;
-	
-	//printf("Size: %d\n Processes: %d\n time: %f\n", SIZE, PROCESSES, time);
-    return 0;
 }
