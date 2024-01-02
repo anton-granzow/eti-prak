@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --nodes=2
-#SBATCH --ntasks=104
+#SBATCH --ntasks=20
 #SBATCH --cpus-per-task=1
 #SBATCH --job-name=eti-prak2
 #SBATCH --output=prak2.out
@@ -24,23 +24,20 @@ mpicc -march=native -O3 $input_file -o $bin_file
 loops=1
 for nodes in 1 2
 do
-    for tasks in 1 2 4 8 16 32 48 64 80 96 104
+    for tasks in 2 4 8 16
     do
         output_file="./data/aufgabe6_nodes_${nodes}_tasks_${tasks}"
         touch $output_file
         echo "size,time" >> $output_file
-        for size in 2048 4096 8192 16384
+        for size in 2048 4096 8192
         do
             echo "SIZE: $size"
             for i in {1..10}
             do
-                if  [[ ! ( ($size -eq 2048 && $tasks -gt 16) || ($size -eq 16384 && $tasks -lt 32) )]]; then
-                    # echo "iteration: $i, size: $size, tasks: $tasks, nodes: $nodes"
-                    srun --exclusive --ntasks=$tasks --nodes=$nodes $bin_file -s $size -l  $loops >> $output_file &
-                fi
+                srun --exclusive --ntasks=$tasks --nodes=$nodes $bin_file -s $size -l  $loops >> $output_file &
             done
+            wait
         done
-	wait
     done
 done
 
