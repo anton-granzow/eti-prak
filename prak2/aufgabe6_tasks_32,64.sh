@@ -1,23 +1,24 @@
 #!/bin/bash
 #SBATCH --nodes=2
-#SBATCH --ntasks=20
+#SBATCH --ntasks=64
 #SBATCH --cpus-per-task=1
 #SBATCH --job-name=eti-prak2
 #SBATCH --output=prak2.out
 #SBATCH --error=prak2.err
 #SBATCH --time=10:00:00
 
+
 bin_file="./bin/mpi_matmul_measure"
 
 loops=1
 for nodes in 1 2
 do
-    for tasks in 2 4 8 16
+    for tasks in 32 64
     do
         output_file="./data/aufgabe6_nodes_${nodes}_tasks_${tasks}"
         touch $output_file
         echo "size,time" >> $output_file
-        for size in 2048 4096 8192
+        for size in 4096 8192 16384
         do
             echo "SIZE: $size"
             for i in {1..10}

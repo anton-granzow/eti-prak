@@ -7,20 +7,8 @@
 #SBATCH --error=prak2.err
 #SBATCH --time=02:00:00
 
-#Module
-module purge
-module load GCC/12.2.0
-module load OpenMPI/4.1.4
-
-
-output_file="./data/aufgabe6.csv"
-input_file="./src/mpi_matmul_measure.c"
-
-#compiling
 bin_file="./bin/mpi_matmul_measure"
-mpicc -march=native -O3 $input_file -o $bin_file
 
-#10 mal Ausführung
 loops=1
 
 output_file="./data/aufgabe6_nodes_1_tasks_1"
@@ -32,7 +20,7 @@ do
     for i in {1..10}
     do
         # echo "iteration: $i, size: $size, tasks: $tasks, nodes: $nodes"
-        srun --exclusive --ntasks=$tasks --nodes=$nodes $bin_file -s $size -l  $loops >> $output_file &
+        srun --exclusive --ntasks=1 $bin_file -s $size -l  $loops >> $output_file &
     done
     wait
 done
