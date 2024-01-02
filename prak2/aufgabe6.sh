@@ -12,11 +12,11 @@ module purge
 module load GCC/12.2.0
 
 
-output_file="./data/aufgabe5-2.csv"
-input_file="./src/matrix_mul_einfach2.c"
+output_file="./data/aufgabe6.csv"
+input_file="./src/mpi_matmul_measure.c"
 
 #compiling
-bin_file="./bin/einfach2"
+bin_file="./bin/mpi_matmul_measure"
 mpicc -march=native -O3 $input_file -o $bin_file
 
 #10 mal Ausführung
