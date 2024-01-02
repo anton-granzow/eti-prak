@@ -2,9 +2,9 @@
 #SBATCH --nodes=2
 #SBATCH --ntasks=64
 #SBATCH --cpus-per-task=1
-#SBATCH --job-name=eti-prak2
-#SBATCH --output=prak2.out
-#SBATCH --error=prak2.err
+#SBATCH --job-name=eti2-t_32,64
+#SBATCH --output=prak2-tasks_32,64.out
+#SBATCH --error=prak2-32,64.err
 #SBATCH --time=10:00:00
 
 
