@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <mpi.h>
 #include <getopt.h>
+#include <time.h>
 
 
 int main(int argc, char *argv[]){
@@ -99,7 +100,6 @@ int main(int argc, char *argv[]){
         //allocate A for slave processes
         A = (float*) malloc(sendcounts[rank]*sizeof(float));
     }
-
 
     MPI_Scatterv(A, sendcounts, displs, MPI_FLOAT, A, sendcounts[rank], MPI_FLOAT, root, MPI_COMM_WORLD);
 

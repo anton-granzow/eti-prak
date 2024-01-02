@@ -27,7 +27,7 @@ do
     do
         output_file="./data/aufgabe6_nodes_${nodes}_tasks_${tasks}"
         touch $output_file
-        echo "size,min,max,avg" >> $output_file
+        echo "size,time" >> $output_file
         for size in 2048 4096 8192 16384
         do
             echo "SIZE: $size"
