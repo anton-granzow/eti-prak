@@ -5,7 +5,7 @@
 #SBATCH --job-name=eti2-t_1
 #SBATCH --output=prak2-tasks_1.out
 #SBATCH --error=prak2-tasks_1.err
-#SBATCH --time=02:00:00
+#SBATCH --time=10:00:00
 
 bin_file="./bin/mpi_matmul_measure"
 
@@ -14,16 +14,17 @@ loops=1
 output_file="./data/aufgabe6_nodes_1_tasks_1"
 touch $output_file
 echo "size,time" >> $output_file
-for size in 2048 4096 8192
+size=8192
+#for size in 2048 4096 8192
+#do
+echo "SIZE: $size"
+for i in {1..10}
 do
-    echo "SIZE: $size"
-    for i in {1..10}
-    do
-        # echo "iteration: $i, size: $size, tasks: $tasks, nodes: $nodes"
-        srun --exclusive --ntasks=1 $bin_file -s $size -l  $loops >> $output_file &
-    done
-    wait
+# echo "iteration: $i, size: $size, tasks: $tasks, nodes: $nodes"
+srun --exclusive --ntasks=1 $bin_file -s $size -l  $loops >> $output_file &
 done
+wait
+#done
 
 
 
