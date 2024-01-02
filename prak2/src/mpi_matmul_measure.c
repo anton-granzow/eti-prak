@@ -148,7 +148,7 @@ int main(int argc, char *argv[]){
     if(rank == root){
         end = clock();
         elapsed_time = (end-start)/(double)CLOCKS_PER_SEC;
-        printf("%d,%f\n", SIZE, elapsed_time);
+        printf("%d,%f \n", SIZE, elapsed_time);
     }
 
     MPI_Finalize();

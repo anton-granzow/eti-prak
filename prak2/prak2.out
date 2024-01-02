@@ -1,0 +1,99 @@
+SIZE: 128
+iteration: 1, size: 128, tasks: 1, nodes: 
+iteration: 2, size: 128, tasks: 1, nodes: 
+iteration: 3, size: 128, tasks: 1, nodes: 
+iteration: 4, size: 128, tasks: 1, nodes: 
+iteration: 5, size: 128, tasks: 1, nodes: 
+iteration: 6, size: 128, tasks: 1, nodes: 
+iteration: 7, size: 128, tasks: 1, nodes: 
+iteration: 8, size: 128, tasks: 1, nodes: 
+iteration: 9, size: 128, tasks: 1, nodes: 
+iteration: 10, size: 128, tasks: 1, nodes: 
+SIZE: 256
+iteration: 1, size: 256, tasks: 1, nodes: 
+iteration: 2, size: 256, tasks: 1, nodes: 
+iteration: 3, size: 256, tasks: 1, nodes: 
+iteration: 4, size: 256, tasks: 1, nodes: 
+iteration: 5, size: 256, tasks: 1, nodes: 
+iteration: 6, size: 256, tasks: 1, nodes: 
+iteration: 7, size: 256, tasks: 1, nodes: 
+iteration: 8, size: 256, tasks: 1, nodes: 
+iteration: 9, size: 256, tasks: 1, nodes: 
+iteration: 10, size: 256, tasks: 1, nodes: 
+SIZE: 512
+iteration: 1, size: 512, tasks: 1, nodes: 
+iteration: 2, size: 512, tasks: 1, nodes: 
+iteration: 3, size: 512, tasks: 1, nodes: 
+iteration: 4, size: 512, tasks: 1, nodes: 
+iteration: 5, size: 512, tasks: 1, nodes: 
+iteration: 6, size: 512, tasks: 1, nodes: 
+iteration: 7, size: 512, tasks: 1, nodes: 
+iteration: 8, size: 512, tasks: 1, nodes: 
+iteration: 9, size: 512, tasks: 1, nodes: 
+iteration: 10, size: 512, tasks: 1, nodes: 
+SIZE: 128
+iteration: 1, size: 128, tasks: 2, nodes: 
+iteration: 2, size: 128, tasks: 2, nodes: 
+iteration: 3, size: 128, tasks: 2, nodes: 
+iteration: 4, size: 128, tasks: 2, nodes: 
+iteration: 5, size: 128, tasks: 2, nodes: 
+iteration: 6, size: 128, tasks: 2, nodes: 
+iteration: 7, size: 128, tasks: 2, nodes: 
+iteration: 8, size: 128, tasks: 2, nodes: 
+iteration: 9, size: 128, tasks: 2, nodes: 
+iteration: 10, size: 128, tasks: 2, nodes: 
+SIZE: 256
+iteration: 1, size: 256, tasks: 2, nodes: 
+iteration: 2, size: 256, tasks: 2, nodes: 
+iteration: 3, size: 256, tasks: 2, nodes: 
+iteration: 4, size: 256, tasks: 2, nodes: 
+iteration: 5, size: 256, tasks: 2, nodes: 
+iteration: 6, size: 256, tasks: 2, nodes: 
+iteration: 7, size: 256, tasks: 2, nodes: 
+iteration: 8, size: 256, tasks: 2, nodes: 
+iteration: 9, size: 256, tasks: 2, nodes: 
+iteration: 10, size: 256, tasks: 2, nodes: 
+SIZE: 512
+iteration: 1, size: 512, tasks: 2, nodes: 
+iteration: 2, size: 512, tasks: 2, nodes: 
+iteration: 3, size: 512, tasks: 2, nodes: 
+iteration: 4, size: 512, tasks: 2, nodes: 
+iteration: 5, size: 512, tasks: 2, nodes: 
+iteration: 6, size: 512, tasks: 2, nodes: 
+iteration: 7, size: 512, tasks: 2, nodes: 
+iteration: 8, size: 512, tasks: 2, nodes: 
+iteration: 9, size: 512, tasks: 2, nodes: 
+iteration: 10, size: 512, tasks: 2, nodes: 
+SIZE: 128
+iteration: 1, size: 128, tasks: 4, nodes: 
+iteration: 2, size: 128, tasks: 4, nodes: 
+iteration: 3, size: 128, tasks: 4, nodes: 
+iteration: 4, size: 128, tasks: 4, nodes: 
+iteration: 5, size: 128, tasks: 4, nodes: 
+iteration: 6, size: 128, tasks: 4, nodes: 
+iteration: 7, size: 128, tasks: 4, nodes: 
+iteration: 8, size: 128, tasks: 4, nodes: 
+iteration: 9, size: 128, tasks: 4, nodes: 
+iteration: 10, size: 128, tasks: 4, nodes: 
+SIZE: 256
+iteration: 1, size: 256, tasks: 4, nodes: 
+iteration: 2, size: 256, tasks: 4, nodes: 
+iteration: 3, size: 256, tasks: 4, nodes: 
+iteration: 4, size: 256, tasks: 4, nodes: 
+iteration: 5, size: 256, tasks: 4, nodes: 
+iteration: 6, size: 256, tasks: 4, nodes: 
+iteration: 7, size: 256, tasks: 4, nodes: 
+iteration: 8, size: 256, tasks: 4, nodes: 
+iteration: 9, size: 256, tasks: 4, nodes: 
+iteration: 10, size: 256, tasks: 4, nodes: 
+SIZE: 512
+iteration: 1, size: 512, tasks: 4, nodes: 
+iteration: 2, size: 512, tasks: 4, nodes: 
+iteration: 3, size: 512, tasks: 4, nodes: 
+iteration: 4, size: 512, tasks: 4, nodes: 
+iteration: 5, size: 512, tasks: 4, nodes: 
+iteration: 6, size: 512, tasks: 4, nodes: 
+iteration: 7, size: 512, tasks: 4, nodes: 
+iteration: 8, size: 512, tasks: 4, nodes: 
+iteration: 9, size: 512, tasks: 4, nodes: 
+iteration: 10, size: 512, tasks: 4, nodes: 

@@ -1,0 +1,99 @@
+SIZE: 1024
+iteration: 1, size: 1024, tasks: 1
+iteration: 2, size: 1024, tasks: 1
+iteration: 3, size: 1024, tasks: 1
+iteration: 4, size: 1024, tasks: 1
+iteration: 5, size: 1024, tasks: 1
+iteration: 6, size: 1024, tasks: 1
+iteration: 7, size: 1024, tasks: 1
+iteration: 8, size: 1024, tasks: 1
+iteration: 9, size: 1024, tasks: 1
+iteration: 10, size: 1024, tasks: 1
+SIZE: 2048
+iteration: 1, size: 2048, tasks: 1
+iteration: 2, size: 2048, tasks: 1
+iteration: 3, size: 2048, tasks: 1
+iteration: 4, size: 2048, tasks: 1
+iteration: 5, size: 2048, tasks: 1
+iteration: 6, size: 2048, tasks: 1
+iteration: 7, size: 2048, tasks: 1
+iteration: 8, size: 2048, tasks: 1
+iteration: 9, size: 2048, tasks: 1
+iteration: 10, size: 2048, tasks: 1
+SIZE: 4096
+iteration: 1, size: 4096, tasks: 1
+iteration: 2, size: 4096, tasks: 1
+iteration: 3, size: 4096, tasks: 1
+iteration: 4, size: 4096, tasks: 1
+iteration: 5, size: 4096, tasks: 1
+iteration: 6, size: 4096, tasks: 1
+iteration: 7, size: 4096, tasks: 1
+iteration: 8, size: 4096, tasks: 1
+iteration: 9, size: 4096, tasks: 1
+iteration: 10, size: 4096, tasks: 1
+SIZE: 1024
+iteration: 1, size: 1024, tasks: 2
+iteration: 2, size: 1024, tasks: 2
+iteration: 3, size: 1024, tasks: 2
+iteration: 4, size: 1024, tasks: 2
+iteration: 5, size: 1024, tasks: 2
+iteration: 6, size: 1024, tasks: 2
+iteration: 7, size: 1024, tasks: 2
+iteration: 8, size: 1024, tasks: 2
+iteration: 9, size: 1024, tasks: 2
+iteration: 10, size: 1024, tasks: 2
+SIZE: 2048
+iteration: 1, size: 2048, tasks: 2
+iteration: 2, size: 2048, tasks: 2
+iteration: 3, size: 2048, tasks: 2
+iteration: 4, size: 2048, tasks: 2
+iteration: 5, size: 2048, tasks: 2
+iteration: 6, size: 2048, tasks: 2
+iteration: 7, size: 2048, tasks: 2
+iteration: 8, size: 2048, tasks: 2
+iteration: 9, size: 2048, tasks: 2
+iteration: 10, size: 2048, tasks: 2
+SIZE: 4096
+iteration: 1, size: 4096, tasks: 2
+iteration: 2, size: 4096, tasks: 2
+iteration: 3, size: 4096, tasks: 2
+iteration: 4, size: 4096, tasks: 2
+iteration: 5, size: 4096, tasks: 2
+iteration: 6, size: 4096, tasks: 2
+iteration: 7, size: 4096, tasks: 2
+iteration: 8, size: 4096, tasks: 2
+iteration: 9, size: 4096, tasks: 2
+iteration: 10, size: 4096, tasks: 2
+SIZE: 1024
+iteration: 1, size: 1024, tasks: 4
+iteration: 2, size: 1024, tasks: 4
+iteration: 3, size: 1024, tasks: 4
+iteration: 4, size: 1024, tasks: 4
+iteration: 5, size: 1024, tasks: 4
+iteration: 6, size: 1024, tasks: 4
+iteration: 7, size: 1024, tasks: 4
+iteration: 8, size: 1024, tasks: 4
+iteration: 9, size: 1024, tasks: 4
+iteration: 10, size: 1024, tasks: 4
+SIZE: 2048
+iteration: 1, size: 2048, tasks: 4
+iteration: 2, size: 2048, tasks: 4
+iteration: 3, size: 2048, tasks: 4
+iteration: 4, size: 2048, tasks: 4
+iteration: 5, size: 2048, tasks: 4
+iteration: 6, size: 2048, tasks: 4
+iteration: 7, size: 2048, tasks: 4
+iteration: 8, size: 2048, tasks: 4
+iteration: 9, size: 2048, tasks: 4
+iteration: 10, size: 2048, tasks: 4
+SIZE: 4096
+iteration: 1, size: 4096, tasks: 4
+iteration: 2, size: 4096, tasks: 4
+iteration: 3, size: 4096, tasks: 4
+iteration: 4, size: 4096, tasks: 4
+iteration: 5, size: 4096, tasks: 4
+iteration: 6, size: 4096, tasks: 4
+iteration: 7, size: 4096, tasks: 4
+iteration: 8, size: 4096, tasks: 4
+iteration: 9, size: 4096, tasks: 4
+iteration: 10, size: 4096, tasks: 4

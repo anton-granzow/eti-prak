@@ -1,0 +1,108 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) release/23.10   2) slurm/slurm-paths
+Module GCC/12.2.0 and 3 dependencies loaded.
+Lmod has detected the following error: These module(s) or extension(s) exist
+but cannot be loaded as requested: "OpenMPI/4.1.4"
+   Try: "module spider OpenMPI/4.1.4" to see how to load the module(s).
+
+
+
+/var/spool/slurmd/job1726625/slurm_script: line 21: mpicc: command not found
+touch: cannot touch './data/test/aufgabe6_nodes_1_tasks_1': No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 31: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_1: No such file or directory
+touch: cannot touch './data/test/aufgabe6_nodes_1_tasks_2': No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 31: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_2: No such file or directory
+touch: cannot touch './data/test/aufgabe6_nodes_1_tasks_4': No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 31: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
+/var/spool/slurmd/job1726625/slurm_script: line 39: ./data/test/aufgabe6_nodes_1_tasks_4: No such file or directory
