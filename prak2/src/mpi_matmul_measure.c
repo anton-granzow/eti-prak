@@ -4,8 +4,6 @@
 #include <getopt.h>
 #include <time.h>
 
-#define UNROLL_256(s) s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s
-
 int main(int argc, char *argv[]){
     int SIZE = 4;
     int root = 0;
@@ -104,11 +102,43 @@ int main(int argc, char *argv[]){
         for(int j=0; j<SIZE; j++){
             int index = row + j;
             C_sub[index] = 0;
-            for(int k = 0; k<SIZE/256; k++){ // unroll x256
-		UNROLL_256(
-                	C_sub[index] += A[row + k] * B[j + k*SIZE];
-		)
-            }
+            for(int k = 0; k<SIZE; k+=32){ // unroll x32
+            	C_sub[index] += A[row + k] * B[j + k*SIZE];
+		C_sub[index] += A[row + k+1] * B[j + (k+1)*SIZE];
+		C_sub[index] += A[row + k+2] * B[j + (k+2)*SIZE];
+		C_sub[index] += A[row + k+3] * B[j + (k+3)*SIZE];
+		C_sub[index] += A[row + k+4] * B[j + (k+4)*SIZE];
+		C_sub[index] += A[row + k+5] * B[j + (k+5)*SIZE];
+		C_sub[index] += A[row + k+6] * B[j + (k+6)*SIZE];
+		C_sub[index] += A[row + k+7] * B[j + (k+7)*SIZE];
+
+		C_sub[index] += A[row + k+8] * B[j + (k+8)*SIZE];
+		C_sub[index] += A[row + k+9] * B[j + (k+9)*SIZE];
+		C_sub[index] += A[row + k+10] * B[j + (k+10)*SIZE];
+		C_sub[index] += A[row + k+11] * B[j + (k+11)*SIZE];
+		C_sub[index] += A[row + k+12] * B[j + (k+12)*SIZE];
+		C_sub[index] += A[row + k+13] * B[j + (k+13)*SIZE];
+		C_sub[index] += A[row + k+14] * B[j + (k+14)*SIZE];
+		C_sub[index] += A[row + k+15] * B[j + (k+15)*SIZE];
+
+		C_sub[index] += A[row + k+16] * B[j + (k+16)*SIZE];
+		C_sub[index] += A[row + k+17] * B[j + (k+17)*SIZE];
+		C_sub[index] += A[row + k+18] * B[j + (k+18)*SIZE];
+		C_sub[index] += A[row + k+19] * B[j + (k+19)*SIZE];
+		C_sub[index] += A[row + k+20] * B[j + (k+20)*SIZE];
+		C_sub[index] += A[row + k+21] * B[j + (k+21)*SIZE];
+		C_sub[index] += A[row + k+22] * B[j + (k+22)*SIZE];
+		C_sub[index] += A[row + k+23] * B[j + (k+23)*SIZE];
+
+		C_sub[index] += A[row + k+24] * B[j + (k+24)*SIZE];
+		C_sub[index] += A[row + k+25] * B[j + (k+25)*SIZE];
+		C_sub[index] += A[row + k+26] * B[j + (k+26)*SIZE];
+		C_sub[index] += A[row + k+27] * B[j + (k+27)*SIZE];
+		C_sub[index] += A[row + k+28] * B[j + (k+28)*SIZE];
+		C_sub[index] += A[row + k+29] * B[j + (k+29)*SIZE];
+		C_sub[index] += A[row + k+30] * B[j + (k+30)*SIZE];
+		C_sub[index] += A[row + k+31] * B[j + (k+31)*SIZE];
+	    }
         }
     }
 
