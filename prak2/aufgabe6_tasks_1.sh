@@ -19,7 +19,6 @@ do
     echo "SIZE: $size"
     for i in {1..10}
     do
-        # echo "iteration: $i, size: $size, tasks: $tasks, nodes: $nodes"
         srun --exclusive --ntasks=1 $bin_file -s $size -l  $loops >> $output_file &
     done
     wait
