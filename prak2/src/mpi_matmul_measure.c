@@ -4,6 +4,7 @@
 #include <getopt.h>
 #include <time.h>
 
+#define UNROLL_256(s) s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s
 
 int main(int argc, char *argv[]){
     int SIZE = 4;
@@ -68,7 +69,8 @@ int main(int argc, char *argv[]){
     // init Matrix Sizes
     float *A;
     float *B = (float*) malloc(SIZE*SIZE*sizeof(float));
-    float *C_sub = (float*) malloc(SIZE*sendrows[rank]*sizeof(float));
+    //float *C_sub = (float*) malloc(SIZE*sendrows[rank]*sizeof(float));
+    float *C_sub = (float*) calloc(SIZE*sendrows[rank], sizeof(float));
     float *C = NULL;
 
     double elapsed_time;
@@ -101,9 +103,11 @@ int main(int argc, char *argv[]){
         int row = i*SIZE;
         for(int j=0; j<SIZE; j++){
             int index = row + j;
-            C_sub[index] = A[row] * B[j];
-            for(int k = 1; k<SIZE; k++){
-                C_sub[index] += A[row + k] * B[j + k*SIZE];
+            C_sub[index] = 0;
+            for(int k = 0; k<SIZE/256; k++){ // unroll x256
+		UNROLL_256(
+                	C_sub[index] += A[row + k] * B[j + k*SIZE];
+		)
             }
         }
     }
