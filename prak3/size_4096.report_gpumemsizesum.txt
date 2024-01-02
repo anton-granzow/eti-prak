@@ -1,0 +1,5 @@
+    Total     Operations  Average  Minimum  Maximum      Operation     
+ -----------  ----------  -------  -------  -------  ------------------
+  65,536.000       4,096   16.000   16.000   16.000  [CUDA memcpy DtoH]
+ 131,072.008       8,193   15.998    0.008   16.000  [CUDA memcpy HtoD]
+       0.008           2    0.004    0.004    0.004  [CUDA memset]     

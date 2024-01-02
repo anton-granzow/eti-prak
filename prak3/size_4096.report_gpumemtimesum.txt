@@ -1,0 +1,5 @@
+ Time(%)  Total Time (ns)  Operations  Average  Minimum  Maximum      Operation     
+ -------  ---------------  ----------  -------  -------  -------  ------------------
+    69.1       21,208,705       8,193  2,588.6    2,272    3,936  [CUDA memcpy HtoD]
+    30.9        9,466,886       4,096  2,311.3    2,208    3,584  [CUDA memcpy DtoH]
+     0.0            3,136           2  1,568.0    1,376    1,760  [CUDA memset]     

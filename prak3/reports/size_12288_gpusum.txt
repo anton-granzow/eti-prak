@@ -1,0 +1,7 @@
+ Time(%)  Total Time (ns)  Instances      Average         Minimum        Maximum      Category             Operation          
+ -------  ---------------  ---------  ---------------  -------------  -------------  -----------  ----------------------------
+    96.8    8,186,358,243          1  8,186,358,243.0  8,186,358,243  8,186,358,243  CUDA_KERNEL  nvkernel_matrix_mul_F1L110_1
+     1.5      126,845,754     36,864          3,440.9          2,720          5,056  CUDA_KERNEL  __pgi_uacc_cuda_fill_42_gpu 
+     1.2      103,687,219     24,577          4,218.9          1,792          5,536  MEMORY_OPER  [CUDA memcpy HtoD]          
+     0.5       39,373,397     12,288          3,204.2          3,008          5,152  MEMORY_OPER  [CUDA memcpy DtoH]          
+     0.0            3,232          2          1,616.0          1,344          1,888  MEMORY_OPER  [CUDA memset]               
