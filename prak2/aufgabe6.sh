@@ -5,11 +5,12 @@
 #SBATCH --job-name=eti-prak2
 #SBATCH --output=prak2.out
 #SBATCH --error=prak2.err
-#SBATCH --time=02:00:00
+#SBATCH --time=10:00:00
 
 #Module
 module purge
 module load GCC/12.2.0
+module load OpenMPI/4.1.4
 
 
 output_file="./data/aufgabe6.csv"
