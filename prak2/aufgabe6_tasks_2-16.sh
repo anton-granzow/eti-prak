@@ -2,9 +2,9 @@
 #SBATCH --nodes=2
 #SBATCH --ntasks=20
 #SBATCH --cpus-per-task=1
-#SBATCH --job-name=eti-prak2
-#SBATCH --output=prak2.out
-#SBATCH --error=prak2.err
+#SBATCH --job-name=eti2-t_2-16
+#SBATCH --output=prak2-tasks_2-16.out
+#SBATCH --error=prak2-tasks_2-16.err
 #SBATCH --time=10:00:00
 
 bin_file="./bin/mpi_matmul_measure"
