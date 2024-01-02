@@ -4,6 +4,7 @@
 #include <getopt.h>
 #include <time.h>
 
+#define UNROLL_256(s) s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s
 
 int main(int argc, char *argv[]){
     int SIZE = 4;
@@ -111,8 +112,10 @@ int main(int argc, char *argv[]){
         for(int j=0; j<SIZE; j++){
             int index = row + j;
             C_sub[index] = A[row] * B[j];
-            for(int k = 1; k<SIZE; k++){
-                C_sub[index] += A[row + k] * B[j + k*SIZE];
+            for(int k = 0; k<SIZE/256; k++){
+		UNROLL_256(
+                	C_sub[index] += A[row + k] * B[j + k*SIZE];
+		)
             }
         }
     }
@@ -125,9 +128,9 @@ int main(int argc, char *argv[]){
             int index = i*SIZE;
             for(int j = 0; j<SIZE; j++){
                 if(C[index+j] != C_check[index+j]) mistakes++;
-                printf("%f, ", C[index+j]);
+            //    printf("%f, ", C[index+j]);
             }
-            printf("\n");
+            //printf("\n");
         }
         printf("mistakes: %d\n", mistakes);
     }
