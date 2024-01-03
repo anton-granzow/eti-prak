@@ -1,0 +1,5 @@
+srun: Job 1728792 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=1728792.7
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 1728792 ON n1240 CANCELLED AT 2024-01-03T09:55:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 1728792.26 ON n1240 CANCELLED AT 2024-01-03T09:55:27 DUE TO TIME LIMIT ***

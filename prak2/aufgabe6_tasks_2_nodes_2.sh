@@ -4,7 +4,7 @@
 #SBATCH --job-name=eti2-t_2_n2
 #SBATCH --output=prak2-tasks_2_nodes_2.out
 #SBATCH --error=prak2-tasks_2_nodes_2.err
-#SBATCH --time=05:00:00
+#SBATCH --time=10:00:00
 
 
 bin_file="./bin/mpi_matmul_measure"
